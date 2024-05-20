@@ -19,11 +19,12 @@ function loadContent() {
                 var nameRow = document.createElement("td")
                 var name = document.createTextNode(data[0])
                 nameRow.appendChild(name)
+
                 var idSpan = document.createElement("span")
                 idSpan.style.display = "none"
                 var id = document.createTextNode(i)
                 idSpan.appendChild(id)
-                nameRow.appendChild(idSpan)
+                // nameRow.appendChild(idSpan)
 
                 // Description
                 var descRow = document.createElement("td")
@@ -50,6 +51,7 @@ function loadContent() {
                 tableRow.appendChild(nameRow)
                 tableRow.appendChild(descRow)
                 tableRow.appendChild(actionRow)
+                tableRow.appendChild(idSpan)
                 tableBody.appendChild(tableRow)
             }
         }
@@ -79,7 +81,7 @@ function saveData() {
 function deleteRow(button) {
     if(confirm("Do you really wanna delete this row?")) {
         var parentRow = button.closest("tr")
-        var idSpan = parentRow.closest("span")
+        var idSpan = parentRow.lastChild
         var id = Number(idSpan.innerText)
         localStorage.removeItem(id)
         parentRow.remove()
@@ -87,13 +89,13 @@ function deleteRow(button) {
 }
 
 function editRow(button) {
-    const row = button.closest('tr');
-    const cells = row.cells;
+    var row = button.closest('tr');
+    var cells = row.cells;
 
     // Switch to edit mode (replace text with input fields)
-    for (const cell of cells) {
+    for (var cell of cells) {
         if (cell !== cells[cells.length - 1]) {
-            const text = cell.innerText;
+            var text = cell.innerText;
             cell.innerHTML = `<input type="text" value="${text}">`;
         }
     }
@@ -103,16 +105,21 @@ function editRow(button) {
 }
 
 function saveChanges(button) {
-    const row = button.closest('tr');
-    const cells = row.cells;
+    var row = button.closest('tr');
+    var cells = row.cells;
 
     // Capture updated data from input fields
-    const newName = cells[0].querySelector('input').value;
-    const newAge = cells[1].querySelector('input').value;
+    var newName = cells[0].querySelector('input').value;
+    var newDesc = cells[1].querySelector('input').value;
 
     // Update the row with new data
     cells[0].innerText = newName;
-    cells[1].innerText = newAge;
+    cells[1].innerText = newDesc;
+
+    // Update the data in localStorage
+    var idSpan = row.lastChild
+    var id = Number(idSpan.innerText)
+    localStorage.setItem(id, [newName, newDesc])
 
     // Switch back to display mode
     cells[cells.length - 1].innerHTML = `
