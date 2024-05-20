@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./base.css">
     <link href="./form.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <a href="./main.html"><button class="back-button">Back</button></a>
+        
         <p class="demo"></p>
         <form action="">
             <label class="form-label" for="fname">Name:</label><br>
@@ -17,7 +18,8 @@
             <input class="form-input form-input-desc" type="text" id="lname" name="lname" value="" placeholder="Note's desc.."><br><br>
         </form>
         <button onclick="saveData()" class="form-submit submit-button">Submit</button>
-        
+        <button class="edit-button button"></button>
+        <a href="./main.html"><button class="back-button">Back</button></a>
     </div>
     <script src="./main.js"></script>
 </body>
