@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link href="../css/main.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">        
+        <table border="1" class="notes">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <!-- This is only here to show a preview of how it would look like -->
+                    <!-- 
+                    <td>Create main page</td>
+                    <td>The page where notes are shown to user</td>
+                    <td class="action-cell">
+                        <button onclick="deleteTableRow(this)">Delete</button>
+                        <button onclick="editTableRow(this)">Edit</button>
+                    </td> 
+                    -->
+                </tr>
+            </tbody>
+        </table>
+        <form action="form.html" method="get">
+            <input type="hidden" name="isCreated" value="true">
+            <button class="button add-button" type="submit">Add</button>
+        </form>
+    </div>
+    <script src="../js/main.js"></script>
+</body>
+</html>

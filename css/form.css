@@ -22,10 +22,16 @@
     border-radius: 4px;
     box-sizing: border-box;
     margin-top: 6px;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
     resize: vertical;
     font-weight: 400;
     font-size: 16px;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .form-submit:hover {
@@ -35,10 +41,25 @@
 .form-submit {
     margin-top: -16px;
     background-color: #04AA6D;
-    /* display: none; */
 }
 
 .back-button {
     margin-top: 12px;
     background-color: #2196F3;
+}
+
+.form-group.invalid .form-input {
+    margin-bottom: 4px;
+}
+
+.form-group.invalid .form-message {
+    color: #f33a58;
+}
+
+.form-message {
+    font-size: 14px;
+    line-height: 14px;
+    padding: 4px 0 0;
+    margin-top: -4px;
+    margin-bottom: 12px;
 }
